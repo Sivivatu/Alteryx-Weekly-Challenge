@@ -1,0 +1,13 @@
+URL,Output File,DownloadHeaders
+http://s3-us-west-1.amazonaws.com/community.uploads/Image+Assets.zip,.\Image Assets.zip,"HTTP/1.1 200 OK
+x-amz-id-2: ZFTLBTTXEoB2+XqhTxCaDOXAdzix6iZ4z5rEkjn8AhBWsds831Df/y7MKtTqtiRJJBTDH7sgULk=
+x-amz-request-id: 6F263FC3C72A9163
+Date: Wed, 06 Dec 2017 07:09:32 GMT
+Last-Modified: Mon, 04 Dec 2017 18:39:42 GMT
+ETag: ""ccc5e79a4f9d13aaef9e9ca22d9cb073""
+Accept-Ranges: bytes
+Content-Type: application/zip
+Content-Length: 1205619
+Server: AmazonS3
+
+"
