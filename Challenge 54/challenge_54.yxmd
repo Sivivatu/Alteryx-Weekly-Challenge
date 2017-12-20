@@ -155,7 +155,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9300_90b55302749741239272aef0aee3fb75_\Engine_9420_9d7a82809d354657b6fbc5be2362dc68_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_2316_1ee818ffe6d74cd58d9a9a4daf5ad64e_\Engine_1572_7b525b319d864227a67b03008c059291_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -183,7 +183,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9300_90b55302749741239272aef0aee3fb75_\Engine_9420_1f0626451c83450183ed8dbaca99c641_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_2316_1ee818ffe6d74cd58d9a9a4daf5ad64e_\Engine_1572_9b710cf8a2e648f58ca8c38e57162feb_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -273,13 +273,13 @@ You goal is to create a process that will transform the data into a data table w
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="225" y="445" />
+        <Position x="535" y="445" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Field>Address Text</Field>
-          <RegExExpression value="([A-Z]{2})\s(\d{5})$" />
-          <CaseInsensitve value="True" />
+          <RegExExpression value="([A-Z]{2})(?:\s(\d{5}))?" />
+          <CaseInsensitve value="False" />
           <Method>ParseComplex</Method>
           <Replace expression="">
             <CopyUnmatched value="True" />
@@ -291,8 +291,8 @@ You goal is to create a process that will transform the data into a data table w
             <ErrorHandling>Warn</ErrorHandling>
           </ParseSimple>
           <ParseComplex>
-            <Field field="RegExOut1" type="V_WString" size="254" />
-            <Field field="Zip Vode" type="V_WString" size="5" />
+            <Field field="State" type="V_WString" size="254" />
+            <Field field="Zip" type="V_WString" size="254" />
           </ParseComplex>
           <Match>
             <Field>Address Text_Matched</Field>
@@ -302,11 +302,182 @@ You goal is to create a process that will transform the data into a data table w
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>Parse:
-([A-Z]{2})\s(\d{5})$</DefaultAnnotationText>
+([A-Z]{2})(?:\s(\d{5}))?</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="215" y="495" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="7" />
+          <Fields>
+            <Field name="Street Types" />
+            <Field name="pipe" />
+          </Fields>
+          <Data>
+            <r>
+              <c>circle</c>
+              <c>%</c>
+            </r>
+            <r>
+              <c>street</c>
+              <c>%</c>
+            </r>
+            <r>
+              <c>drive</c>
+              <c>%</c>
+            </r>
+            <r>
+              <c>road</c>
+              <c>%</c>
+            </r>
+            <r>
+              <c>ave</c>
+              <c>%</c>
+            </r>
+            <r>
+              <c>avenue</c>
+              <c>%</c>
+            </r>
+            <r>
+              <c>st</c>
+              <c>%</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+        <Position x="335" y="445" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldFind>Address Text</FieldFind>
+          <FieldSearch>Street Types</FieldSearch>
+          <ReplaceFoundField>pipe</ReplaceFoundField>
+          <FindMode>FindAny</FindMode>
+          <NoCase value="True" />
+          <MatchWholeWord value="True" />
+          <ReplaceMode>Replace</ReplaceMode>
+          <ReplaceMultipleFound value="False" />
+          <ReplaceAppendFields>
+            <Field field="Street Types" />
+          </ReplaceAppendFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="435" y="445" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Address Text</Field>
+          <NumFields value="2" />
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>Address Text</RootName>
+          <Delimeters value="%" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="645" y="445" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="REGEX_Replace([Address Text2], &quot;[A-Z]{2}\s\d{5}$|[A-Z]{2}$&quot;, &quot;&quot;)" field="City" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[City = REGEX_Replace([Address Text2], "[A-Z]{2}\s\d{5}$|[A-Z]{2}$", "")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings>
+        <Position x="765" y="445" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="List Box (11)">"City"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="865" y="445" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Address Text" selected="False" />
+            <SelectField field="Address Text1" selected="False" />
+            <SelectField field="Address Text2" selected="False" />
+            <SelectField field="City" selected="True" />
+            <SelectField field="State" selected="True" />
+            <SelectField field="Zip" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
   </Nodes>
   <Connections>
@@ -316,11 +487,35 @@ You goal is to create a process that will transform the data into a data table w
     </Connection>
     <Connection>
       <Origin ToolID="4" Connection="Output" />
-      <Destination ToolID="31" Connection="Input" />
+      <Destination ToolID="33" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="33" Connection="Source" />
     </Connection>
     <Connection>
       <Origin ToolID="13" Connection="Output" />
       <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="38" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output26" />
+      <Destination ToolID="39" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
