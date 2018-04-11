@@ -184,7 +184,7 @@ The objective is to create a batch macro that calculates the retention rate for 
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6508_e0ebd47f1e4749239107450670c4c5b8_\Engine_15192_893e25330e3540d6baa0140ad15c3cb4_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5016_1804d4c04be042b88fb2ca282d4cf137_\Engine_15192_93ab200e7fd04861863303dec65c9a90_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -260,7 +260,7 @@ The objective is to create a batch macro that calculates the retention rate for 
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6508_e0ebd47f1e4749239107450670c4c5b8_\Engine_15192_41eaeee9be644ec096880356f62c8a1c_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5016_1804d4c04be042b88fb2ca282d4cf137_\Engine_15192_7f67699b780440d6b134df7b527c2df2_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -282,253 +282,9 @@ The objective is to create a batch macro that calculates the retention rate for 
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="91">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="205" y="405" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldType>Text</FieldType>
-          <Fields orderChanged="False">
-            <Field name="Open Date" />
-            <Field name="Close Date" />
-            <Field name="*Unknown" selected="False" />
-          </Fields>
-          <CopyOutput value="False" />
-          <Expression>DateTimeParse([_CurrentField_], "%B %d, %Y")</Expression>
-          <ChangeFieldType value="True" />
-          <OutputFieldType type="Date" size="10" scale="1" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>DateTimeParse([_CurrentField_], "%B %d, %Y")</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
-    </Node>
-    <Node ToolID="92">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="415" y="405" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldType>DateTime</FieldType>
-          <Fields orderChanged="False">
-            <Field name="Open Date" />
-            <Field name="Close Date" />
-            <Field name="*Unknown" selected="False" />
-          </Fields>
-          <CopyOutput value="False" />
-          <Expression>DateTimeTrim([_CurrentField_], 'month')</Expression>
-          <ChangeFieldType value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>DateTimeTrim([_CurrentField_], 'month')</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
-    </Node>
-    <Node ToolID="93">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="515" y="405" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="&quot;2013-05-01&quot;" field="Month" size="10" type="Date" />
-            <FormulaField expression="DateTimeDiff([Month],[Open Date],'month')&lt;=24&#xA;&#xA;AND [Open Date]&lt;[Month]" field="Open" size="1" type="Bool" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Month = "2013-05-01"
-Open = DateTimeDiff([Month],[Open Date],'month')&lt;=24
-
-AND [...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="94">
-      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="775" y="375" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SummarizeFields>
-            <SummarizeField field="Month" action="GroupBy" rename="Start of Month" />
-            <SummarizeField field="RecordID" action="Count" rename="Open" />
-          </SummarizeFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
-    </Node>
-    <Node ToolID="95">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="655" y="385" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>[Open] = 1</Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>IsTrue</Operator>
-            <Field>Open</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2018-04-11 12:20:13</PeriodDate>
-              <PeriodType>days</PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>
-              </Operand>
-              <StartDate>2018-04-11 12:20:13</StartDate>
-              <EndDate>2018-04-11 12:20:13</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>[Open] = 1</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="96">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="655" y="465" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>[Month] = [Close Date]</Expression>
-          <Mode>Custom</Mode>
-          <Simple>
-            <Operator>=</Operator>
-            <Field>Month</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2018-04-11 12:23:51</PeriodDate>
-              <PeriodType>days</PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>2018-04-11</Operand>
-              <StartDate>2018-04-11 12:23:51</StartDate>
-              <EndDate>2018-04-11 12:23:51</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>[Month] = [Close Date]</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="97">
-      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="765" y="465" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SummarizeFields>
-            <SummarizeField field="RecordID" action="Count" rename="Close" />
-          </SummarizeFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
-    </Node>
-    <Node ToolID="98">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
-        <Position x="915" y="415" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <JoinByRecPos value="True" />
-          <OutputJoinOnly value="False" />
-          <SelectConfiguration>
-            <Configuration outputConnection="Output">
-              <OrderChanged value="False" />
-              <CommaDecimal value="False" />
-              <SelectFields>
-                <SelectField field="*Unknown" selected="True" />
-              </SelectFields>
-            </Configuration>
-          </SelectConfiguration>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
-    </Node>
-    <Node ToolID="99">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1045" y="415" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="[Close]/[Open]" field="%" size="5.2" type="FixedDecimal" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[% = [Close]/[Open]
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="100">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="285" y="515" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6508_e0ebd47f1e4749239107450670c4c5b8_\Engine_15192_a764670e34e74bfeb6feed2ff6f9301f_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="103">
+    <Node ToolID="107">
       <GuiSettings>
-        <Position x="275" y="635" />
+        <Position x="265" y="395" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -543,22 +299,22 @@ AND [...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output10">
           <RecordInfo>
-            <Field name="Start of Month" source="Summarize: GroupBy - Month (BatchMacro) (BatchMacro)" type="Date" />
-            <Field name="Open" source="Summarize: Count (BatchMacro) (BatchMacro)" type="Int64" />
-            <Field name="Close" source="Summarize: Count - RecordID (BatchMacro) (BatchMacro)" type="Int64" />
-            <Field name="%" scale="2" size="5" source="Formula: [Close]/[Open] (BatchMacro) (BatchMacro)" type="FixedDecimal" />
+            <Field name="Start of Month" source="Summarize: GroupBy - Month (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Open" source="Summarize: Count (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="Close" source="Summarize: Count - RecordID (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="%" scale="2" size="5" source="Formula: [Close]/[Open] (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings Macro="week17 - Month-on-Month.yxmc" />
+      <EngineSettings Macro=".\week17 - Month-on-Month.yxmc" />
     </Node>
     <Node ToolID="102">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="375" y="635" />
+        <Position x="365" y="395" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6508_e0ebd47f1e4749239107450670c4c5b8_\Engine_15192_06621e42811440548bf4936f9eae691e_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5016_1804d4c04be042b88fb2ca282d4cf137_\Engine_15192_d505b215276644199ef8d252025f9e8a_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -588,62 +344,18 @@ AND [...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="87" Connection="Output" />
-      <Destination ToolID="91" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="87" Connection="Output" />
-      <Destination ToolID="103" Connection="Input13" />
+      <Destination ToolID="107" Connection="Input13" />
     </Connection>
     <Connection>
       <Origin ToolID="89" Connection="Output" />
-      <Destination ToolID="103" Connection="Control" />
+      <Destination ToolID="107" Connection="Control" />
     </Connection>
     <Connection>
       <Origin ToolID="89" Connection="Output" />
       <Destination ToolID="90" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="91" Connection="Output" />
-      <Destination ToolID="92" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="91" Connection="Output" />
-      <Destination ToolID="100" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="92" Connection="Output" />
-      <Destination ToolID="93" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="93" Connection="Output" />
-      <Destination ToolID="95" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="93" Connection="Output" />
-      <Destination ToolID="96" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="94" Connection="Output" />
-      <Destination ToolID="98" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="97" Connection="Output" />
-      <Destination ToolID="98" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="95" Connection="True" />
-      <Destination ToolID="94" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="96" Connection="True" />
-      <Destination ToolID="97" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="98" Connection="Output" />
-      <Destination ToolID="99" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="103" Connection="Output10" />
+      <Origin ToolID="107" Connection="Output10" />
       <Destination ToolID="102" Connection="Input" />
     </Connection>
   </Connections>
@@ -665,7 +377,7 @@ AND [...</DefaultAnnotationText>
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>challenge_17_start_file</Name>
+      <Name>challenge_17</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
