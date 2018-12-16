@@ -1,0 +1,712 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="url" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://community.alteryx.com/t5/Weekly-Challenge/Weekly-Challenge-Index-amp-Welcome/td-p/48275</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="150" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>url</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="246" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <Delimeters value="\n" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="StartsWith([DownloadData], '&lt;TR&gt;')" field="Table Data" size="1" type="Bool" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Table Data = StartsWith([DownloadData], '<TR>')
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="534" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>url</UpdateField_Name>
+          <CreateField_Name>table number</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF [Row-1:Table Data] THEN [Row-1:table number] ELSE [Row-1:table number]+1 endif</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [Row-1:Table Data] THEN [Row-1:table number] ELSE [Row-1:t...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="630" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Table Data] = 1</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsTrue</Operator>
+            <Field>Table Data</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-11-22 21:31:00</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2018-11-22 21:31:00</StartDate>
+              <EndDate>2018-11-22 21:31:00</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Table Data] = 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="342" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="url" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="738" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([DownloadData],"viewprofilepage") OR Contains([DownloadData],'Challenger')</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>DownloadData</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-11-22 21:33:12</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>viewprofilepage</Operand>
+              <StartDate>2018-11-22 21:33:12</StartDate>
+              <EndDate>2018-11-22 21:33:12</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([DownloadData],"viewprofilepage") OR Contains([DownloadData],'Challenge...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="846" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <RegExExpression value="&lt;TD&gt;(.*?)&lt;/TD&gt;" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName />
+            <NumFields value="2" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="RegExOut1" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>DownloadData_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tokenize:
+&lt;TD&gt;(.*?)&lt;/TD&gt;</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="846" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <RegExExpression value="&lt;TD&gt;(.*?)&lt;/TD&gt;" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName />
+            <NumFields value="4" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="RegExOut1" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>DownloadData_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tokenize:
+&lt;TD&gt;(.*?)&lt;/TD&gt;</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="942" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="1" />
+            <Field name="2" />
+            <Field name="DownloadData" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>REGEX_Replace([_CurrentField_], "&lt;/?STRONG&gt;", "")</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>REGEX_Replace([_CurrentField_], "&lt;/?STRONG&gt;", "")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="942" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="1" />
+            <Field name="2" />
+            <Field name="3" />
+            <Field name="4" />
+            <Field name="DownloadData" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>REGEX_Replace([_CurrentField_], "&lt;/?STRONG&gt;", "")</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>REGEX_Replace([_CurrentField_], "&lt;/?STRONG&gt;", "")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="1014" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>FirstRow</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="1" />
+            <Field name="2" />
+            <Field name="*Unknown" />
+            <Field name="DownloadData" selected="False" />
+            <Field name="Table Data" selected="False" />
+            <Field name="table number" selected="False" />
+          </Fields>
+          <Expression />
+          <FirstRow>
+            <OnError>Warn</OnError>
+          </FirstRow>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="Table Data" source="Formula: StartsWith([DownloadData], '&lt;TR&gt;')" type="Bool" />
+            <Field description="Formula: IF [Row-1:Table Data] THEN [Row-1:table number] ELSE [Row-1:table number]+1 endif" name="table number" source="Formula: IF [Row-1:Table Data] THEN [Row-1:table number] ELSE [Row-1:table number]+1 endif" type="Int32" />
+            <Field description="RegEx: Parsed from DownloadData" name="Challenger" size="1073741823" source="Formula: REGEX_Replace([_CurrentField_], &quot;&lt;/?STRONG&gt;&quot;, &quot;&quot;)" type="V_WString" />
+            <Field description="RegEx: Parsed from DownloadData" name="Challenges Completed" size="1073741823" source="Formula: REGEX_Replace([_CurrentField_], &quot;&lt;/?STRONG&gt;&quot;, &quot;&quot;)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="1026" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>FirstRow</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="1" />
+            <Field name="2" />
+            <Field name="3" />
+            <Field name="4" />
+            <Field name="*Unknown" />
+            <Field name="DownloadData" selected="False" />
+            <Field name="Table Data" selected="False" />
+            <Field name="table number" selected="False" />
+          </Fields>
+          <Expression />
+          <FirstRow>
+            <OnError>Warn</OnError>
+          </FirstRow>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="Table Data" source="Formula: StartsWith([DownloadData], '&lt;TR&gt;')" type="Bool" />
+            <Field description="Formula: IF [Row-1:Table Data] THEN [Row-1:table number] ELSE [Row-1:table number]+1 endif" name="table number" source="Formula: IF [Row-1:Table Data] THEN [Row-1:table number] ELSE [Row-1:table number]+1 endif" type="Int32" />
+            <Field description="RegEx: Parsed from DownloadData" name="Challenge Number" size="1073741823" source="Formula: REGEX_Replace([_CurrentField_], &quot;&lt;/?STRONG&gt;&quot;, &quot;&quot;)" type="V_WString" />
+            <Field description="RegEx: Parsed from DownloadData" name="Challenge Name" size="1073741823" source="Formula: REGEX_Replace([_CurrentField_], &quot;&lt;/?STRONG&gt;&quot;, &quot;&quot;)" type="V_WString" />
+            <Field description="RegEx: Parsed from DownloadData" name="Level of Difficulty" size="1073741823" source="Formula: REGEX_Replace([_CurrentField_], &quot;&lt;/?STRONG&gt;&quot;, &quot;&quot;)" type="V_WString" />
+            <Field description="RegEx: Parsed from DownloadData" name="Main Subject" size="1073741823" source="Formula: REGEX_Replace([_CurrentField_], &quot;&lt;/?STRONG&gt;&quot;, &quot;&quot;)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="1110" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Challenge Name</Field>
+          <RegExExpression value="^&lt;A href=&quot;(.*)&quot;\starget=&quot;_blank&quot;&gt;(.*)&lt;\/A&gt;" />
+          <CaseInsensitve value="False" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName />
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="Challenge URL" type="V_WString" size="254" />
+            <Field field="Challenge" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>DownloadData_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Parse:
+^&lt;A href="(.*)"\starget="_b...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="1098" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <RegExExpression value="&lt;a href=&quot;(.*)&quot;&gt;(@.*)&lt;/a&gt;" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName />
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="User Profile" type="V_WString" size="254" />
+            <Field field="User Name" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>DownloadData_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Parse:
+&lt;a href="(.*)"&gt;(@.*)&lt;/a&gt;</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1194" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="Table Data" selected="False" />
+            <SelectField field="table number" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1206" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="Table Data" selected="False" />
+            <SelectField field="Challenge Name" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="Google Sheets Output">
+        <Position x="1302" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="client_id">465916137195-hdjrne4e7f49hbk1gpm8dn0b8sf3eboj.apps.googleusercontent.com</Value>
+          <Value name="refresh_token">1/t7x27GQHy-Iqq5IMAIL20lsh3_IOkwusIlU5e-93SZ8</Value>
+          <Value name="workbookName">Alteryx Weekly Challenge Index</Value>
+          <Value name="worksheetName">Challenge Index</Value>
+          <Value name="workbookID">1uI4Fn2FCeN3mUSFmdkKIulYY4XsCVXYkB4m4z25zeXM</Value>
+          <Value name="worksheetID">od6</Value>
+          <Value name="accessToken">ya29.GltzBn2pzRYsoaAufHktyuTRjKe9Fv0EIRAe80DrG7-dtrMwZGau7provjyb_q6TBf5TNvYMphE_zrAFGtapHFw-o6FOxMe2ng3qOhnEr6vf_VAWWutYVyUdZqHI</Value>
+          <Value name="newWorkbook">No</Value>
+          <Value name="newWorksheet">No</Value>
+          <Value name="deleteSheets">No</Value>
+          <Value name="appendSheet">No</Value>
+          <Value name="view">7</Value>
+          <Value name="client_secret">4FF390F95322D013557569F843D825871BDA4CBBC66FA258B17DA868CA70B9B8DE3B5D8C99FB021E1449D09C00AD3C47E008A062B634D0725BDDFC712AF68E9D767813F7A2E506119B836F9E33BB9BE243F4AC021268DC555FDFA12263AEBBF559CB790BDB15F754BB294DCF1BBEB770FF8A6B09CEDE3E819F7372933C7888A2C818FD4118876880235935A9F45E1A233433FDED3DB60023AE0041A6973F561477982CBE00146C25FB3433F9843311D707FB491C8F906BE35624D5E86741ACB8577FCFBEBE00C17D375E9CD03EEFFB99CFB8524CE891E</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Google Sheets Output\Supporting_Macros\GoogleSheetsOutput.yxmc" EngineDll="Macro" EngineDllEntryPoint="Google Sheets Output\Supporting_Macros\GoogleSheetsOutput.yxmc" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="Google Sheets Output">
+        <Position x="1302" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="client_id">465916137195-hdjrne4e7f49hbk1gpm8dn0b8sf3eboj.apps.googleusercontent.com</Value>
+          <Value name="refresh_token">1/t7x27GQHy-Iqq5IMAIL20lsh3_IOkwusIlU5e-93SZ8</Value>
+          <Value name="workbookName">Alteryx Weekly Challenge Index</Value>
+          <Value name="worksheetName">Leader Board</Value>
+          <Value name="workbookID">1uI4Fn2FCeN3mUSFmdkKIulYY4XsCVXYkB4m4z25zeXM</Value>
+          <Value name="worksheetID">
+          </Value>
+          <Value name="accessToken">ya29.GltzBnNhWYyu9PlmocZ2yAz8DK4rRFt4tVvRucoR2jAwjk1__gmg8oHupJp9mZzmBQEMemTR1_FQiq_kPQgJ4FArKLpvQmLRwG5VZXKaEc1auxClkTGb711wvb4Z</Value>
+          <Value name="newWorkbook">No</Value>
+          <Value name="newWorksheet">Yes</Value>
+          <Value name="deleteSheets">No</Value>
+          <Value name="appendSheet">No</Value>
+          <Value name="view">7</Value>
+          <Value name="client_secret">4FF390F95322D013557569F843D825871BDA4CBBC66FA258B17DA868CA70B9B8DE3B5D8C99FB021E1449D09C00AD3C47E008A062B634D0725BDDFC712AF68E9D767813F7A2E506119B836F9E33BB9BE243F4AC021268DC555FDFA12263AEBBF559CB790BDB15F754BB294DCF1BBEB770FF8A6B09CEDE3E819F7372933C7888A2C818FD4118876880235935A9F45E1A233433FDED3DB60023AE0041A6973F561477982CBE00146C25FB3433F9843311D707FB491C8F906BE35624D5E86741ACB8577FCFBEBE00C17D375E9CD03EEFFB99CFB8524CE891E</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Google Sheets Output\Supporting_Macros\GoogleSheetsOutput.yxmc" EngineDll="Macro" EngineDllEntryPoint="Google Sheets Output\Supporting_Macros\GoogleSheetsOutput.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="True" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="True" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="False" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Weekly Challenge Index Parsing</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
