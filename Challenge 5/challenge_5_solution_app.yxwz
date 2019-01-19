@@ -723,6 +723,9 @@ The goal is to create an analytical application that allows a HR rep to enter a 
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
     </Node>
     <Node ToolID="81">
@@ -788,6 +791,9 @@ The goal is to create an analytical application that allows a HR rep to enter a 
               <DefaultAnnotationText>challenge_5_app.yxdb</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
         </Node>
