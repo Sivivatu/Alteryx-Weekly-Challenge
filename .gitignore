@@ -21,6 +21,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Google file links
+*.gdoc
+
 # Alteryx backups
 *.bak
 *.ini
