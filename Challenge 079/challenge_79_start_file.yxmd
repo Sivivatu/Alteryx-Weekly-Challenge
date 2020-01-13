@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="9.5">
+<AlteryxDocument yxmdVer="10.5">
   <Nodes>
-    <Node ToolID="51">
+    <Node ToolID="116">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="30" y="234" width="216" height="204" />
+        <Position x="438" y="222" width="240" height="204" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>Input</Text>
-          <Font name="Lato" size="7.8" style="0" />
-          <TextColor name="Gray" />
+          <Text>Output</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
           <FillColor name="White" />
           <Shape shape="0" />
           <Justification Justification="4" />
@@ -21,59 +21,18 @@
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="66" y="306" />
+    <Node ToolID="115">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="66" y="222" width="240" height="204" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="10" />
-          <Fields>
-            <Field name="word1" />
-            <Field name="word2" />
-          </Fields>
-          <Data>
-            <r>
-              <c>racecar</c>
-              <c>racecar</c>
-            </r>
-            <r>
-              <c>lease</c>
-              <c>sale</c>
-            </r>
-            <r>
-              <c>resistance</c>
-              <c>ancestries</c>
-            </r>
-            <r>
-              <c>admirer</c>
-              <c>married</c>
-            </r>
-            <r>
-              <c>listen</c>
-              <c>silent</c>
-            </r>
-            <r>
-              <c>cinema</c>
-              <c>iceman</c>
-            </r>
-            <r>
-              <c>elvis</c>
-              <c>lives</c>
-            </r>
-            <r>
-              <c>running</c>
-              <c>ruining</c>
-            </r>
-            <r>
-              <c>filter</c>
-              <c>lifter</c>
-            </r>
-            <r>
-              <c>plain</c>
-              <c>nail</c>
-            </r>
-          </Data>
+          <Text>Input</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -81,11 +40,10 @@
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="48">
+    <Node ToolID="26">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="30" y="30" width="324" height="72" />
+        <Position x="54" y="54" width="324" height="72" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -104,14 +62,14 @@
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="49">
+    <Node ToolID="27">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="426" y="54" width="300" height="40" />
+        <Position x="450" y="66" width="300" height="40" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>Weekly Challenge #59</Text>
-          <Font name="Lato" size="16.2" style="0" />
+          <Text>Challenge #79</Text>
+          <Font name="Microsoft Sans Serif" size="16.2" style="0" />
           <TextColor name="Gray" />
           <FillColor name="White" />
           <Shape shape="3" />
@@ -124,18 +82,22 @@
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="50">
+    <Node ToolID="28">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="30" y="90" width="612" height="132" />
+        <Position x="66" y="114" width="612" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>This week, let's take a break from all of those business uses cases and have some fun! In this challenge, create a field that indicates whether a two values in each row are anagrams for each other. An anagram is a word formed by re-arranging the letters of another word. In our case, all anagrams are one word and are not split to multiple. No letter can be used more than once, and all letters must be used.</Text>
-          <Font name="Lato" size="7.8" style="0" />
+          <Text><![CDATA[A prime number is a number that has two positive divisors - 1 and itself.
+
+Without the use of a lookup table, please build an app that takes a user-entered number and returns the closest prime number to the entered number.
+
+]]></Text>
+          <Font name="Microsoft Sans Serif" size="7.8" style="0" />
           <TextColor name="Gray" />
           <FillColor name="White" />
           <Shape shape="0" />
-          <Justification Justification="0" />
+          <Justification Justification="3" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -144,18 +106,25 @@
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="52">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="426" y="234" width="216" height="204" />
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="571" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>Output</Text>
-          <Font name="Lato" size="7.8" style="0" />
-          <TextColor name="Gray" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
+          <TempFile>C:\Users\jmiller\AppData\Local\Temp\Engine_15004_b3205335c57f44a2ad74d5ef1983598b_\Engine_59496_b016244bebff469490406b25e0c79a93_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -163,80 +132,21 @@
           <Left value="False" />
         </Annotation>
       </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="60">
+    <Node ToolID="119">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="450" y="306" />
+        <Position x="102" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="10" />
+          <NumRows value="1" />
           <Fields>
-            <Field name="RecordID" />
-            <Field name="word1" />
-            <Field name="word2" />
-            <Field name="Anagram" />
+            <Field name="Number" />
           </Fields>
           <Data>
             <r>
-              <c>1</c>
-              <c>racecar</c>
-              <c>racecar</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>2</c>
-              <c>lease</c>
-              <c>sale</c>
-              <c>No</c>
-            </r>
-            <r>
-              <c>3</c>
-              <c>resistance</c>
-              <c>ancestries</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>4</c>
-              <c>admirer</c>
-              <c>married</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>5</c>
-              <c>listen</c>
-              <c>silent</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>6</c>
-              <c>cinema</c>
-              <c>iceman</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>7</c>
-              <c>elvis</c>
-              <c>lives</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>8</c>
-              <c>running</c>
-              <c>ruining</c>
-              <c>No</c>
-            </r>
-            <r>
-              <c>9</c>
-              <c>filter</c>
-              <c>lifter</c>
-              <c>Yes</c>
-            </r>
-            <r>
-              <c>10</c>
-              <c>plain</c>
-              <c>nail</c>
-              <c>No</c>
+              <c>100</c>
             </r>
           </Data>
         </Configuration>
@@ -248,21 +158,12 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="61">
+    <Node ToolID="120">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="162" y="306" />
+        <Position x="198" y="294" />
       </GuiSettings>
       <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_4372_8a0b3b7312c2498f99ebebf7617c9590_\Engine_17212_0c14db69c3764160907c85e2e6883f35_.yxdb</TempFile>
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
-        </Configuration>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -271,20 +172,23 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="62">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="558" y="306" />
+    <Node ToolID="121">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="474" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_4372_8a0b3b7312c2498f99ebebf7617c9590_\Engine_17212_3890c3fd36fd423a8f2ed2cd2a93ca7a_.yxdb</TempFile>
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Number" />
+            <Field name="Closest Prime Number" />
+          </Fields>
+          <Data>
+            <r>
+              <c>100</c>
+              <c />
+            </r>
+          </Data>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -292,17 +196,17 @@
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
   </Nodes>
   <Connections>
     <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="61" Connection="Input" />
+      <Origin ToolID="119" Connection="Output" />
+      <Destination ToolID="120" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="60" Connection="Output" />
-      <Destination ToolID="62" Connection="Input" />
+      <Origin ToolID="121" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -323,7 +227,7 @@
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>challenge_59_start_file</Name>
+      <Name>challenge_79_start_file</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -334,6 +238,10 @@
       <Company />
       <Copyright />
       <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
     </MetaInfo>
     <Events>
       <Enabled value="True" />
