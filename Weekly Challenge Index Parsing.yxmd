@@ -355,7 +355,7 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1314" y="198" />
+        <Position x="1410" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -382,7 +382,7 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="Google Sheets Output">
-        <Position x="1410" y="198" />
+        <Position x="1506" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -439,50 +439,6 @@
         </Annotation>
       </Properties>
       <EngineSettings Macro="Google Sheets Output\Supporting_Macros\GoogleSheetsOutput.yxmc" EngineDll="Macro" EngineDllEntryPoint="Google Sheets Output\Supporting_Macros\GoogleSheetsOutput.yxmc" />
-    </Node>
-    <Node ToolID="28">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="246" y="30" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_25788_d1575d7463a14d3aa48dff0b0a1024a6_\Engine_14740_dcacfaac5906413fa97685be09510fab_.yxdb</TempFile>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="29">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="342" y="42" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_25788_d1575d7463a14d3aa48dff0b0a1024a6_\Engine_14740_65a4550ed31b49079db2f929776b44c8_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
@@ -850,6 +806,25 @@ e...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
     </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1314" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Main Subject</Field>
+          <Delimeters value="," />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -861,16 +836,8 @@ e...</DefaultAnnotationText>
       <Destination ToolID="5" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="28" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="5" Connection="Output" />
       <Destination ToolID="9" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="29" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
@@ -910,7 +877,7 @@ e...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="19" Connection="Output" />
-      <Destination ToolID="25" Connection="Input" />
+      <Destination ToolID="52" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="25" Connection="Output" />
@@ -971,6 +938,10 @@ e...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="51" Connection="Output" />
       <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
