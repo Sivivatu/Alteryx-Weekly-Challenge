@@ -104,6 +104,7 @@
             <FormulaField expression="16" field="Base" size="2" type="Int16" />
             <FormulaField expression="Mod([Decimal], [Base])" field="Remainder" size="1073741823" type="V_WString" />
             <FormulaField expression="FLOOR([Decimal] / [Base])" field="Quotent" size="4" type="Int32" />
+            <FormulaField expression="[Engine.IterationNumber]" field="Iteration" size="2" type="Int16" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -120,6 +121,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
             <Field name="Base" source="Formula: 16" type="Int16" />
             <Field name="Remainder" size="1073741823" source="Formula: Mod([Decimal], [Base])" type="V_WString" />
             <Field name="Quotent" source="Formula: FLOOR([Decimal] / [Base])" type="Int32" />
+            <Field name="Iteration" source="Formula: [Engine.IterationNumber]" type="Int16" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -127,7 +129,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="145">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="186" y="342" />
+        <Position x="246" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -146,7 +148,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Ref1" size="3" source="TextInput:" type="String" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Ref2" size="1" source="Formula: Uppercase([Ref2])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -154,42 +156,28 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="140">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="318" y="342" />
+        <Position x="342" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>&lt;</Operator>
-            <Field>Ref1</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2022-07-28 12:01:31</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>16</Operand>
-              <StartDate>2022-07-28 12:01:31</StartDate>
-              <EndDate>2022-07-28 12:01:31</EndDate>
-            </Operands>
-          </Simple>
+          <Expression>ToNumber([Ref1]) &lt; 16</Expression>
+          <Mode>Custom</Mode>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>[Ref1] &lt; 16</DefaultAnnotationText>
+          <DefaultAnnotationText>ToNumber([Ref1]) &lt; 16</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
             <Field name="Ref1" size="3" source="TextInput:" type="String" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Ref2" size="1" source="Formula: Uppercase([Ref2])" type="String" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
             <Field name="Ref1" size="3" source="TextInput:" type="String" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Ref2" size="1" source="Formula: Uppercase([Ref2])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -225,7 +213,8 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
             <Field name="Base" source="Formula: 16" type="Int16" />
             <Field name="Remainder" size="1073741823" source="Formula: Mod([Decimal], [Base])" type="V_WString" />
             <Field name="Quotent" source="Formula: FLOOR([Decimal] / [Base])" type="Int32" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Iteration" source="Formula: [Engine.IterationNumber]" type="Int16" />
+            <Field name="Ref2" size="1" source="Formula: Uppercase([Ref2])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -233,7 +222,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="146">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="570" y="318" />
+        <Position x="498" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -266,7 +255,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
             <Field name="Base" source="Formula: 16" type="Int16" />
             <Field name="Remainder" size="1073741823" source="Formula: Mod([Decimal], [Base])" type="V_WString" />
             <Field name="Quotent" source="Formula: FLOOR([Decimal] / [Base])" type="Int32" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Iteration" source="Formula: [Engine.IterationNumber]" type="Int16" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
@@ -276,7 +265,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
             <Field name="Base" source="Formula: 16" type="Int16" />
             <Field name="Remainder" size="1073741823" source="Formula: Mod([Decimal], [Base])" type="V_WString" />
             <Field name="Quotent" source="Formula: FLOOR([Decimal] / [Base])" type="Int32" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Iteration" source="Formula: [Engine.IterationNumber]" type="Int16" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -284,7 +273,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="151">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="726" y="270" />
+        <Position x="714" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -292,13 +281,11 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Decimal" selected="False" />
-            <SelectField field="round" selected="False" rename="Decimal" />
-            <SelectField field="Answer" selected="True" />
             <SelectField field="Base" selected="False" />
             <SelectField field="Remainder" selected="False" />
-            <SelectField field="Ref2" selected="False" />
             <SelectField field="RecordID" selected="True" />
             <SelectField field="Quotent" selected="True" rename="Decimal" />
+            <SelectField field="Iteration" selected="False" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
         </Configuration>
@@ -318,7 +305,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="147">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="714" y="354" />
+        <Position x="678" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -326,7 +313,6 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Remainder" selected="False" />
-            <SelectField field="round" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -341,7 +327,8 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
             <Field name="RecordID" source="TextInput:" type="Byte" />
             <Field name="Base" source="Formula: 16" type="Int16" />
             <Field name="Quotent" source="Formula: FLOOR([Decimal] / [Base])" type="Int32" />
-            <Field name="Ref2" size="1" source="TextInput:" type="String" />
+            <Field name="Iteration" source="Formula: [Engine.IterationNumber]" type="Int16" />
+            <Field name="Ref2" size="1" source="Formula: Uppercase([Ref2])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -349,7 +336,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="149">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="822" y="270" />
+        <Position x="810" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -390,7 +377,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
           <Optional value="False" />
           <TextInput>
             <Configuration>
-              <NumRows value="8" />
+              <NumRows value="10" />
               <Fields>
                 <Field name="Decimal" />
                 <Field name="RecordID" />
@@ -428,6 +415,14 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
                   <c>624</c>
                   <c>5</c>
                 </r>
+                <r>
+                  <c>39</c>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>2</c>
+                  <c>5</c>
+                </r>
               </Data>
             </Configuration>
           </TextInput>
@@ -448,7 +443,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="155">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="810" y="354" />
+        <Position x="810" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -465,14 +460,13 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="156">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="210" y="150" />
+        <Position x="186" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
           <CommaDecimal value="False" />
           <SelectFields>
-            <SelectField field="Answer" selected="True" type="V_String" size="100" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -490,11 +484,75 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
+    <Node ToolID="157">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Uppercase([Ref2])" field="Ref2" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Ref2 = Uppercase([Ref2])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Ref1" source="TextInput:" type="Byte" />
+            <Field name="Ref2" size="1" source="Formula: Uppercase([Ref2])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="158">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+        <Position x="234" y="6" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Numeric Up Down (158)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="159">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="270" y="78" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="160">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="198" y="78" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="118" Connection="Output" />
-      <Destination ToolID="145" Connection="Input" />
+      <Destination ToolID="157" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="144" Connection="Output" />
@@ -505,15 +563,19 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
       <Destination ToolID="142" Connection="Source" />
     </Connection>
     <Connection>
-      <Origin ToolID="145" Connection="Output" />
-      <Destination ToolID="140" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="142" Connection="Output" />
+      <Origin ToolID="144" Connection="Output" />
       <Destination ToolID="146" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="146" Connection="False" />
+      <Origin ToolID="145" Connection="Output" />
+      <Destination ToolID="140" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="160" Connection="Action" />
+      <Destination ToolID="140" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="142" Connection="Output" />
       <Destination ToolID="147" Connection="Input" />
     </Connection>
     <Connection>
@@ -536,6 +598,22 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
       <Origin ToolID="156" Connection="Output" />
       <Destination ToolID="144" Connection="Input" />
     </Connection>
+    <Connection name="#2">
+      <Origin ToolID="159" Connection="Action" />
+      <Destination ToolID="144" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="157" Connection="Output" />
+      <Destination ToolID="145" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="158" Connection="Question" />
+      <Destination ToolID="159" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="158" Connection="Question" />
+      <Destination ToolID="160" Connection="Question" />
+    </Connection>
   </Connections>
   <Properties>
     <Memory default="True" />
@@ -554,6 +632,14 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     <ShowConnectionStatusOnlyWhenRunning value="True" />
     <ZoomLevel value="0" />
     <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Numeric Up Down (158)</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+    </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
       <Name>NewMacro2</Name>
@@ -581,7 +667,33 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
       <Enabled value="False" />
     </Events>
     <RuntimeProperties>
-      <Actions />
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="159" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>144/FormulaFields/FormulaField[@field='Base']/@expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="160" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>16</ReplaceText>
+              <Destination>140/Expression</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
       <Questions>
         <Question>
           <Type>Tab</Type>
@@ -589,6 +701,17 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
           <Name>Tab (152)</Name>
           <ToolId value="152" />
           <Questions>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Base Conversion</Description>
+              <Name>Numeric Up Down (158)</Name>
+              <ToolId value="158" />
+              <Minimum value="0" />
+              <Maximum value="16" />
+              <Increment value="1" />
+              <Default value="16" />
+              <Decimals value="0" />
+            </Question>
             <Question>
               <Type>MacroInput</Type>
               <Description />
