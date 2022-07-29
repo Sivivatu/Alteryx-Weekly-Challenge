@@ -412,6 +412,7 @@ Quotent - Ascending</DefaultAnnotationText>
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -474,7 +475,7 @@ Quotent - Ascending</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="177">
+    <Node ToolID="178">
       <GuiSettings>
         <Position x="402" y="678" />
       </GuiSettings>
@@ -486,7 +487,7 @@ RecordID=RecordID
 ]]></Value>
         </Configuration>
         <Annotation DisplayMode="0">
-          <Name />
+          <Name>313_Base_Conversion_Macro (177)</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -568,11 +569,11 @@ RecordID=RecordID
     </Connection>
     <Connection>
       <Origin ToolID="161" Connection="Output" />
-      <Destination ToolID="177" Connection="Decimal_Input" />
+      <Destination ToolID="178" Connection="Decimal_Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="174" Connection="Action" />
-      <Destination ToolID="177" Connection="Action" />
+      <Destination ToolID="178" Connection="Action" />
     </Connection>
     <Connection>
       <Origin ToolID="165" Connection="Output" />
@@ -591,7 +592,7 @@ RecordID=RecordID
       <Destination ToolID="169" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="177" Connection="converted_output" />
+      <Origin ToolID="178" Connection="converted_output" />
       <Destination ToolID="166" Connection="Input" />
     </Connection>
   </Connections>
@@ -710,9 +711,9 @@ Base 165419541n5148905f1n0941f580916
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="59" Selected="False" />
-        <Tool ToolId="177" Selected="True" />
         <Tool ToolId="131" Selected="True" />
         <Tool ToolId="169" Selected="True" />
+        <Tool ToolId="178" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="118">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="342" />
+        <Position x="54" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -96,7 +96,7 @@
     </Node>
     <Node ToolID="144">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="306" y="150" />
+        <Position x="306" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -129,7 +129,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="145">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="246" y="342" />
+        <Position x="246" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -156,7 +156,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="140">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="342" y="342" />
+        <Position x="342" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -185,7 +185,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="142">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="450" y="318" />
+        <Position x="450" y="366" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -222,7 +222,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="146">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="498" y="150" />
+        <Position x="498" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -273,7 +273,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="151">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="714" y="150" />
+        <Position x="714" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -305,7 +305,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="147">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="678" y="318" />
+        <Position x="678" y="366" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -336,7 +336,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="149">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="810" y="150" />
+        <Position x="810" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -366,7 +366,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="154">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="54" y="150" />
+        <Position x="54" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -443,7 +443,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="155">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="810" y="318" />
+        <Position x="810" y="366" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -460,7 +460,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="156">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="186" y="150" />
+        <Position x="186" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -486,7 +486,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="157">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="150" y="342" />
+        <Position x="150" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -511,7 +511,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="158">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
-        <Position x="234" y="6" width="59" height="59" />
+        <Position x="342" y="6" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -524,7 +524,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="159">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="270" y="78" width="59" height="59" />
+        <Position x="318" y="90" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -537,7 +537,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Node>
     <Node ToolID="160">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="198" y="78" width="59" height="59" />
+        <Position x="402" y="90" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -642,7 +642,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>NewMacro2</Name>
+      <Name>313_Base_Conversion_Macro</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -750,7 +750,7 @@ Quotent = FLOOR([Decimal] / [Base])...</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="149" Selected="False" />
+        <Tool ToolId="149" Selected="True" />
         <Tool ToolId="154" Selected="True" />
         <Tool ToolId="155" Selected="True" />
       </Wiz_OpenOutputTools>
