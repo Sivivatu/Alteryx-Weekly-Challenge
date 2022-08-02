@@ -1,0 +1,753 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="654" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Mod([Volume],[Prime Number])" field="Remainder" size="8" type="Int64" />
+            <FormulaField expression="[Volume]/[Prime Number]" field="Quoitent" size="8" type="Int64" />
+            <FormulaField expression="if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" field="Remainder_List" size="1073741823" type="V_WString" />
+            <FormulaField expression="if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" field="index" size="1073741823" type="V_WString" />
+            <FormulaField expression="if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" field="test_list" size="1073741823" type="V_WString" />
+            <FormulaField expression="if [Remainder] = 0 then [Quoitent] else [Volume] Endif" field="New Volume" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Remainder = Mod([Volume],[Prime Number])
+Quoitent = [Volume]/[Prime Number]
+Rema...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+            <Field name="Remainder" source="Formula: Mod([Volume],[Prime Number])" type="Int64" />
+            <Field name="Quoitent" source="Formula: [Volume]/[Prime Number]" type="Int64" />
+            <Field name="New Volume" source="Formula: if [Remainder] = 0 then [Quoitent] else [Volume] Endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="66" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input43</Name>
+          <Abbrev />
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="Material" />
+                <Field name="Volume" />
+                <Field name="max_factor" />
+                <Field name="RecordID" />
+                <Field name="index" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>Material A</c>
+                  <c>5040</c>
+                  <c>2520</c>
+                  <c>1</c>
+                  <c>1</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Input</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" source="TextInput:" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1038" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>iterate</Name>
+          <Abbrev>I</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>I Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="750" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>&gt;</Operator>
+            <Field>New Volume</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2022-08-02 09:28:48</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2022-08-02 09:28:48</StartDate>
+              <EndDate>2022-08-02 09:28:48</EndDate>
+              <Operand>1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[New Volume] &gt; 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+            <Field name="Remainder" source="Formula: Mod([Volume],[Prime Number])" type="Int64" />
+            <Field name="Quoitent" source="Formula: [Volume]/[Prime Number]" type="Int64" />
+            <Field name="New Volume" source="Formula: if [Remainder] = 0 then [Quoitent] else [Volume] Endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+            <Field name="Remainder" source="Formula: Mod([Volume],[Prime Number])" type="Int64" />
+            <Field name="Quoitent" source="Formula: [Volume]/[Prime Number]" type="Int64" />
+            <Field name="New Volume" source="Formula: if [Remainder] = 0 then [Quoitent] else [Volume] Endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="78" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="0" />
+          <Fields>
+            <Field name="Remainder_List" />
+            <Field name="index" />
+            <Field name="test_list" />
+          </Fields>
+          <Data />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Remainder_List" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="index" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="174" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="558" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Remainder_List" selected="True" size="999999999" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1074" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output54</Name>
+          <Abbrev>O</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>O Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="942" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Volume" selected="False" />
+            <SelectField field="Prime Number" selected="False" />
+            <SelectField field="Remainder" selected="False" />
+            <SelectField field="Quoitent" selected="False" rename="Volume" />
+            <SelectField field="New Volume" selected="True" rename="Volume" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" type="V_WString" />
+            <Field name="Volume" source="Formula: if [Remainder] = 0 then [Quoitent] else [Volume] Endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+        <Position x="462" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldFind>index</FieldFind>
+          <FieldSearch>Index</FieldSearch>
+          <ReplaceFoundField>Prime Number</ReplaceFoundField>
+          <FindMode>FindAny</FindMode>
+          <NoCase value="False" />
+          <MatchWholeWord value="False" />
+          <ReplaceMode>Append</ReplaceMode>
+          <ReplaceMultipleFound value="True" />
+          <ReplaceAppendFields>
+            <Field field="Prime Number" />
+          </ReplaceAppendFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="186" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\paulj\OneDrive\Documents\Github\Alteryx-Weekly-Challenge\Challenge 275\List of Primes.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>List of Primes.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Index" size="11" source="RecordID: Starting Value=1" type="V_String" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="366" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>All</FieldType>
+          <Fields orderChanged="False">
+            <Field name="index" />
+            <Field name="Remainder_List" />
+            <Field name="test_list" />
+            <Field name="test" />
+            <Field name="Material" selected="False" />
+            <Field name="Volume" selected="False" />
+            <Field name="max_factor" selected="False" />
+            <Field name="RecordID" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>if IsNull([_CurrentField_]) then '1' else
+[_CurrentField_] endif</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>if IsNull([_CurrentField_]) then '1' else
+[_CurrentField_] endif</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if IsNull([_CurrentField_]) then '1' else&#xA;[_CurrentField_] endif" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="270" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Message</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>"Iternation number: " + tostring([Engine.IterationNumber]) + ", the Volume is :" + tostring(Volume) + " and the index number is: " + tostring([index])</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="846" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Message</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>"Iternation number: " + tostring([Engine.IterationNumber]) + ", the index number is: " + tostring([index]) + ", the Volume is :" + tostring([Volume]) + ", the Quoitent is :" + tostring([Quoitent]) + ", the reminder is :" + tostring([Remainder]) +" and the new volume number is: " + tostring([New Volume])</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+            <Field name="Remainder" source="Formula: Mod([Volume],[Prime Number])" type="Int64" />
+            <Field name="Quoitent" source="Formula: [Volume]/[Prime Number]" type="Int64" />
+            <Field name="New Volume" source="Formula: if [Remainder] = 0 then [Quoitent] else [Volume] Endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="882" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Remainder_List</Field>
+          <RegExExpression value="^1," />
+          <CaseInsensitve value="True" />
+          <Method>Replace</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Remainder_List</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+          </ParseComplex>
+          <Match>
+            <Field>Material_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="Volume" source="TextInput:" type="Int16" />
+            <Field name="max_factor" source="TextInput:" type="Int16" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="index" size="1073741823" source="Formula: if [Remainder] = 0 then [index] else ToNumber([index]) + 1 endif" type="V_WString" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+            <Field name="test_list" size="1073741823" source="Formula: if [Remainder] = 0 then [test_list] + ',' + tostring([Quoitent]) else [test_list] Endif" type="V_WString" />
+            <Field description="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" name="Prime Number" source="RegEx: Parsed from &lt;div style=&quot;margin: 2px&quot;&gt;" type="Int32" />
+            <Field name="Remainder" source="Formula: Mod([Volume],[Prime Number])" type="Int64" />
+            <Field name="Quoitent" source="Formula: [Volume]/[Prime Number]" type="Int64" />
+            <Field name="New Volume" source="Formula: if [Remainder] = 0 then [Quoitent] else [Volume] Endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="978" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Volume" selected="False" />
+            <SelectField field="max_factor" selected="False" />
+            <SelectField field="index" selected="False" />
+            <SelectField field="test_list" selected="False" />
+            <SelectField field="Prime Number" selected="False" />
+            <SelectField field="Remainder" selected="False" />
+            <SelectField field="Quoitent" selected="False" />
+            <SelectField field="New Volume" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Material" size="10" source="TextInput:" type="String" />
+            <Field name="RecordID" source="TextInput:" type="Byte" />
+            <Field name="Remainder_List" size="1073741823" source="Formula: if [Remainder] = 0 then [Remainder_List] + ',' + tostring([Prime Number]) else [Remainder_List] Endif&#xA;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="True" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="False" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="56" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="56" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Prime_factorisation</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="29cb43c0-3002-4b2f-8909-ee1c037291df" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="29cb43c0-3002-4b2f-8909-ee1c037291df" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (46)</Name>
+          <ToolId value="46" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description />
+              <Name>Macro Input (47)</Name>
+              <ToolId value="47" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (48)</Name>
+              <ToolId value="48" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (54)</Name>
+              <ToolId value="54" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="37" />
+      <MacroInputs />
+      <MacroOutputs />
+      <IterativeMacro>
+        <Input>Input43</Input>
+        <Output>iterate</Output>
+        <IterationLimit value="100" />
+        <LimitBehavior>Warn</LimitBehavior>
+        <OutputMode>AutoByName</OutputMode>
+      </IterativeMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="47" Selected="True" />
+        <Tool ToolId="48" Selected="True" />
+        <Tool ToolId="54" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
