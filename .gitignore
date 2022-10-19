@@ -29,3 +29,8 @@ $RECYCLE.BIN/
 *.ini
 *.xcf
 Live Stream Assets/
+
+
+# Environment files
+*/.env
+*/env.csv
